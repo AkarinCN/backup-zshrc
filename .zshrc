@@ -1,4 +1,10 @@
-PROMPT="[%n@%M %~]%# "
+#autoload -U promptinit
+autoload colors && colors 
+#promptinit
+#prompt redhat
+
+PROMPT="%{$fg[red]%}> %{$reset_color%}%{$fg[green]%}%n@%m %{$reset_color%}%{$fg[cyan]%}%d %# %{$reset_color%}"
+
 export EDITOR=emacs
 setopt autocd
 
@@ -22,8 +28,6 @@ setopt PUSHD_IGNORE_DUPS
 
 #hash -d h="/home/ikaros"
 
-autoload colors
-colors 
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
 eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
 eval $color='%{$fg[${(L)color}]%}'
