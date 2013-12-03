@@ -1,8 +1,12 @@
 PROMPT="[%n@%M %~]%# "
 export EDITOR=emacs
+setopt autocd
 
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' menu select=20
+
+setopt menu_complete
 alias TOP10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
 export SAVEHIST=10000
@@ -14,6 +18,8 @@ setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_SPACE
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
+
+#alias test="test"
 
 #hash -d h="/home/ikaros"
 
