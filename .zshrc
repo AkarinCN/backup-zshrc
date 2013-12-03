@@ -5,7 +5,6 @@ setopt autocd
 autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 zstyle ':completion:*' menu select=20
-
 setopt menu_complete
 alias TOP10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
